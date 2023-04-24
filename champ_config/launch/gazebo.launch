@@ -5,8 +5,9 @@
     <arg name="ros_control_file"   default="$(find champ_config)/config/ros_control/ros_control.yaml" />
     <arg name="gazebo_world"       default="$(find champ_config)/worlds/office.world" />
     <arg name="gui"                default="true"/>
-    <arg name="world_init_x"       default="0.0" />
-    <arg name="world_init_y"       default="0.0" />
+    <arg name="world_init_x"       default="-5.5" />
+    <arg name="world_init_y"       default="-5.5" />
+    <arg name="world_init_z"       default="0.6" />
     <arg name="world_init_heading" default="0.0" />
 
     <param name="use_sim_time" value="true" />
@@ -29,6 +30,7 @@
         <arg name="gazebo_world"       value="$(arg gazebo_world)"/>
         <arg name="world_init_x"       value="$(arg world_init_x)" />
         <arg name="world_init_y"       value="$(arg world_init_y)" />
+        <arg name="world_init_z"       value="$(arg world_init_z)" />
         <arg name="world_init_heading" value="$(arg world_init_heading)" />
         <arg name="gui"                value="$(arg gui)" />
     </include>
