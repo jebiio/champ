@@ -98,11 +98,11 @@
       </camera>
     </gui>
     <wind/>
-    <!-- <include>
+    <include>
         <uri>model://willowgarage</uri>
         <pose>-16 -18 0.001 0 0 0</pose>
-    </include> -->
-    <model name="willowgarage">
+    </include>
+    <!-- <model name="willowgarage">
       <static>true</static>
       <pose>-20 -20 0 0 0 0</pose>
       <link name="walls">
@@ -124,6 +124,10 @@
           <cast_shadows>false</cast_shadows>
         </visual>
       </link>
-    </model>
+    </model> -->
+    <include>
+        <uri>model://person_standing</uri>
+        <pose>0 0 0 0 0 0</pose>
+    </include>
   </world>
 </sdf>
