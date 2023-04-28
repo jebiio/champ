@@ -90,6 +90,10 @@ target_link_libraries(state_estimation_node state_estimation ${catkin_LIBRARIES}
 add_dependencies(state_estimation_node ${catkin_EXPORTED_TARGETS})
 add_dependencies(state_estimation ${catkin_EXPORTED_TARGETS})
 
+add_executable(my_broadcaster_node src/my_broadcaster_node.cpp)
+target_link_libraries(my_broadcaster_node ${catkin_LIBRARIES})
+add_dependencies(my_broadcaster_node ${catkin_EXPORTED_TARGETS})
+
 install(TARGETS 
     quadruped_controller
     quadruped_controller_node
@@ -97,6 +101,7 @@ install(TARGETS
     message_relay_node
     state_estimation
     state_estimation_node
+    my_broadcaster_node
     ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
