@@ -5,16 +5,25 @@
 #include "gazebo_msgs/ModelStates.h"
 
 geometry_msgs::TransformStamped transformStamped;
+std::string target_model_name = "/";
 
 void poseCallback(const gazebo_msgs::ModelStates::ConstPtr &msg)
 {
-    transformStamped.transform.translation.x = msg->pose[2].position.x;
-    transformStamped.transform.translation.y = msg->pose[2].position.y;
-    transformStamped.transform.translation.z = msg->pose[2].position.z;
-    transformStamped.transform.rotation.x = msg->pose[2].orientation.x;
-    transformStamped.transform.rotation.y = msg->pose[2].orientation.y;
-    transformStamped.transform.rotation.z = msg->pose[2].orientation.z;
-    transformStamped.transform.rotation.w = msg->pose[2].orientation.w;
+    for (int i = 0; i < msg->name.size(); i++)
+    {
+        if (msg->name[i] == target_model_name)
+        {
+            transformStamped.transform.translation.x = msg->pose[i].position.x;
+            transformStamped.transform.translation.y = msg->pose[i].position.y;
+            transformStamped.transform.translation.z = msg->pose[i].position.z;
+            transformStamped.transform.rotation.x = msg->pose[i].orientation.x;
+            transformStamped.transform.rotation.y = msg->pose[i].orientation.y;
+            transformStamped.transform.rotation.z = msg->pose[i].orientation.z;
+            transformStamped.transform.rotation.w = msg->pose[i].orientation.w;
+            break;
+        }
+    }
+
 }
 
 int main(int argc, char **argv)
