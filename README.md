@@ -1,5 +1,32 @@
+# Champ
+* 4족로봇 개발 플랫폼
 
-# Setup
+## 1. Champ setup방법
+### 1.1 Install
+
+```bash
+sudo apt install -y python3-rosdep
+mkdir ~/champ_ws/src -p
+cd ~/champ_ws/src
+git clone --recursive https://github.com/chvmp/champ
+git clone https://github.com/chvmp/champ_teleop
+cd ~/champ_ws
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+source ~/champ_ws/devel/setup.bash
+```
+
+* error: ‘chrono_literals’ is not a namespace-name
+  * champ_gazebo CMakeLists.txt add_compile_options(-std=c++17) 로 수정
+
+### 1.2 Run
+[master branch](https://github.com/chvmp/champ) 참조
+
+## 2. go1 auto slam
+
+* Champ(Go1) + Explore-lite + yolov7-ros
+
+### Setup
 
 ```bash
 sudo apt install -y python3-rosdep ros-noetic-vision-msgs ros-noetic-geometry-msgs
@@ -20,7 +47,7 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 ```
 
-# Run
+### Run
 
 1. source env.
 ```bash
